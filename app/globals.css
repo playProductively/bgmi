@@ -2,26 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
+body,
+html,
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.glitch {
+  animation: fadein 1.4s ease-in-out;
+}
+
+.typing {
+  overflow: hidden;
+  animation: type 1.5s ease-in;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0.4;
+    transform: scale(0.5, 0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes type {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+.slomo {
+  transition: 0.3s opacity ease-in;
+}
+.bgtransition {
+  transition: 0.5s background-color ease-in;
+}
+
+.dottedLi li::before {
+  display: inline-block;
+  content: "";
+  border-radius: 50%;
+  height: 10px;
+  width:10px;
+  margin-right: 0.5rem;
+  background-color: skyblue;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background-color: transparent;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(200, 201, 201); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: grey; 
 }
